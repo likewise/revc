@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        /*{
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/target/debug/foo.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceRoot}",
+            "environment": [],
+            "externalConsole": true
+        },*/
+        {
+            "name": "recve",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/target/debug/revce",
+            /* arguments match first REVCE run in scripts/run_codec_cif.sh */
+            "args": [
+                "-i", "scripts/foreman_cif8.yuv", "-w", "352", "-h", "288", "-z", "30",
+                "-f", "8", "-q", "22",
+                "-r", "./scripts/tmp/test_cif_ld_i_q22.yuv",
+                "-o", "./scripts/tmp/test_cif_ld_i_q22.evc",
+                "--ref_pic_gap_length", "8", "--inter_slice_type", "1", "-v", "-p", "1"
+            ],
+            "cwd": "${workspaceRoot}",
+        }
+    ]
+}
